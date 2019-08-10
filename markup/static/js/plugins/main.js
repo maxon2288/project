@@ -1,8 +1,7 @@
 
 $(document).ready(function () {
-	$("body").css({'visibility': "visible", "opacity": "1"});
+	// $("body").css({'visibility': "visible", "opacity": "1"});
 	popup ();
-	M.AutoInit();
 	// forms();
 
 	var swiper = new Swiper('.slider', {
@@ -12,6 +11,13 @@ $(document).ready(function () {
 			prevEl: '.slider-prev',
 		},
 	});
+
+	var lazyLoadInstance = new LazyLoad({
+		elements_selector: "img"
+		// ... more custom settings?
+	});
+
+	
 
 
 	$(document).ready(function() {
@@ -60,5 +66,9 @@ $(document).ready(function () {
 		$input.val(temp >= min ? temp : min);
 		$(".number-result").text($input.val());
     });
-	 
+	$(".m-bg-cont").each(function() {
+		var it = $(this);
+		var src = it.find("img").attr("data-src")
+		it.css("background-image", "url(" +src+ ")");
+	});
 })
