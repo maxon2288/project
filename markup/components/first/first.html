@@ -1,10 +1,10 @@
 <div class="first">
-    <div class="first__bg m-bg-cont">
+    <div class="first__bg m-bg-cont parallax">
             <img data-src='static/img/content/first-bg.jpg'>
     </div>
     <div class="wrapper">
         <div class="first__container">
-            <div class="first__top">
+            <div class="first__top parallax-text">
                 <div class="first__title">
                         Мы специализируемся <br>
                         на профессиональной вёрстке <span>сайтов</span>
@@ -19,19 +19,20 @@
                 <div class="first__bottom-title">
                         Узнайте стоимость вёрстки в 2 клика
                 </div>
-                <div class="first__bottom-form">    
+                <form id="upload-container" method="post" action="send.php" class="first__bottom-form first-form">    
                     <div class="first__input-container">
                         <input type="text" name="url" class="first__input" placeholder="Введите URL макета(-ов)">
                         <div class="first__submit">
-                            <div class="first__submit-button">
+                            <button class="first__submit-button">
                                 {{Icon iconName="arrow1"}}
-                            </div>
+                            </button>
                             <div class="first__submit-text">
                                     Перейти к шагу <span>2</span>
                             </div>
                         </div>
                     </div>
                     <div class="first__upload">
+                        <input type="file" name="file" id="file-input" multiple>
                         Или перетащите <br>
                         файлы сюда
                     </div>

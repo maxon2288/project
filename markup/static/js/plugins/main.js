@@ -96,13 +96,14 @@ $(document).ready(function () {
 		$('select').niceSelect();
 	});
 
-	$('.form').each(function() {
+	$('.first-form').each(function() {
         var it = $(this);
          it.validate({
 			rules: {
-				number: {
+				url: {
 					digits: true,
-					required: false,
+
+					required: true,
 					maxlength: 4,
 				}
 			},
@@ -111,6 +112,7 @@ $(document).ready(function () {
 			},
 
 			submitHandler: function() {
+				
 				$.ajax({
 					success: function(){
 						var rowId = it.closest('tr').data("id");
@@ -143,4 +145,26 @@ $(document).ready(function () {
 		var src = it.find("img").attr("data-src")
 		it.css("background-image", "url(" +src+ ")");
 	});
+
+	function parallax() {
+		$(".parallax").each(function() {
+			var scroll = $(document).scrollTop();
+			$(this).css({
+				'background-position':'50% '+(-0.5*scroll)+'px'
+			});
+		})
+		$(".parallax-text").each(function() {
+			var scroll = $(document).scrollTop();
+			$(this).css({
+				'opacity': 1 - scroll / 250,
+				"margin-top": scroll / 2
+			});
+		});
+	}
+	parallax();
+
+	$(window).scroll(function() {
+		parallax();		
+	});
+
 })
